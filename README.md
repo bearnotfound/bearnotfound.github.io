@@ -1,2 +1,2 @@
-# glorious.github.io
-PGT Website With Animation.
+# bearnotfound.github.io
+Hello! Welcome to my website!
