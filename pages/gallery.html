@@ -71,11 +71,42 @@
             display: block;
             font-style: italic;
         }
+
+        .home-btn {
+            position: fixed;
+            bottom: 20px;   /* Adjust the distance from the bottom */
+            left: 50%;      /* Centers the button horizontally */
+            transform: translateX(-50%); /* Adjusts the horizontal position perfectly */
+            background-color: white;  /* White color for the button */
+            color: #ffffff;   /* Blue color for the icon */
+            border: 2px solid #000000;  /* Blue border around the button */
+            border-radius: 50%;   /* Make the button a circle */
+            width: 50px;          /* Set the size */
+            height: 50px;
+            font-size: 24px;      /* Adjust the icon size */
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Optional shadow for effect */
+            transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transition */
+        }
+
+        /* Hover effect for the button */
+        .home-btn:hover {
+            background-color: #d0d0d0;  /* Blue background on hover */
+        }
     </style>
 </head>
 <body>
     <div class="gallery" id="gallery"></div>
-
+    
+    <a href="https://bearnotfound.github.io/">
+        <button class="home-btn">
+            <img src="../../images/homebutton.png">
+        </button>
+    </a>
+    
     <script>
         const images = [
             { src: "../../images/gallery/AirplaneView.jpeg", date: "Aug 14, 2023", description: "View from airplane"},
