@@ -20,7 +20,7 @@
             margin: 0;
             overflow: hidden;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #000;
@@ -100,15 +100,43 @@
         .home-btn:hover {
             background-color: #d0d0d0;
         }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .overlay img {
+            max-height: 80vh;
+            max-width: 90vw;
+            object-fit: contain;
+        }
+
+        .enlarged {
+            max-height: 80vh;
+            max-width: 90vw;
+        }
     </style>
 </head>
 <body>
     <div class="gallery" id="gallery"></div>
-    
+
     <a href="https://bearnotfound.github.io/">
         <button class="home-btn">🏠</button>
     </a>
-    
+
+    <div class="overlay" id="overlay">
+        <img id="overlayImage" src="" alt="">
+    </div>
+
     <script>
         const images = [
             { src: "../../images/gallery/AirplaneView.jpeg", date: "Aug 14, 2023", description: "View from airplane"},
@@ -120,6 +148,8 @@
         ];
 
         const gallery = document.getElementById("gallery");
+        const overlay = document.getElementById("overlay");
+        const overlayImage = document.getElementById("overlayImage");
         
         images.forEach(image => {
             const photoDiv = document.createElement("div");
@@ -129,7 +159,7 @@
             img.src = image.src;
             img.alt = image.description;
             img.draggable = false;
-            
+
             const infoDiv = document.createElement("div");
             infoDiv.classList.add("info-container");
             infoDiv.innerHTML = `${image.description} <i>${image.date}</i>`;
@@ -142,6 +172,20 @@
             });
 
             gallery.appendChild(photoDiv);
+
+            img.addEventListener("click", () => {
+                overlay.style.display = "flex";
+                overlayImage.src = image.src;
+            });
+        });
+
+        overlay.addEventListener("click", () => {
+            overlay.style.display = "none";
+            overlayImage.src = "";
+        });
+
+        overlayImage.addEventListener("click", (e) => {
+            e.stopPropagation();
         });
     </script>
 
