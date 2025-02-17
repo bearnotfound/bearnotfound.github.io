@@ -127,10 +127,15 @@
             img.addEventListener('touchstart', (e) => {
                 e.preventDefault();
             });
-
+            
+            photoDiv.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+            });
+            
             const infoDiv = document.createElement("div");
             infoDiv.classList.add("info-container");
             infoDiv.innerHTML = `${image.description} <i>${image.date}</i>`;
+            infoDiv.style.display = 'none';
 
             photoDiv.appendChild(img);
             photoDiv.appendChild(infoDiv);
