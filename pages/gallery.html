@@ -203,13 +203,19 @@
 
             img.addEventListener("click", () => {
                 overlay.style.display = "flex";
+                overlay.classList.add("active");
                 overlayImage.src = image.src;
+                overlayImage.classList.add("active");
             });
         });
 
         overlay.addEventListener("click", () => {
-            overlay.style.display = "none";
-            overlayImage.src = "";
+            overlay.classList.remove("active");
+            overlayImage.classList.remove("active");
+            setTimeout(() => {
+                overlay.style.display = "none";
+                overlayImage.src = "";
+            }, 500);
         });
 
         overlayImage.addEventListener("click", (e) => {
