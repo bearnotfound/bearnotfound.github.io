@@ -154,6 +154,12 @@
                 opacity: 1;
             }
         }
+
+        @media (hover: none) and (pointer: coarse) {
+            .photo:hover .info-container {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -203,12 +209,6 @@
             photoDiv.appendChild(img);
             photoDiv.appendChild(infoDiv);
 
-            photoDiv.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-            });
-
-            gallery.appendChild(photoDiv);
-
             img.addEventListener("click", () => {
                 overlay.style.display = "flex";
                 setTimeout(() => {
@@ -217,6 +217,18 @@
                     overlayImage.classList.add("active");
                 }, 10);
             });
+
+            img.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                overlay.style.display = "flex";
+                setTimeout(() => {
+                    overlay.classList.add("active");
+                    overlayImage.src = image.src;
+                    overlayImage.classList.add("active");
+                }, 10);
+            });
+
+            gallery.appendChild(photoDiv);
         });
 
         overlay.addEventListener("click", () => {
