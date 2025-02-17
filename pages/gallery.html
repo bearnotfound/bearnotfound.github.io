@@ -142,10 +142,18 @@
 
             gallery.appendChild(photoDiv);
 
+            photoDiv.addEventListener('mouseover', () => {
+                infoDiv.style.display = 'block'; // Show description on hover
+            });
+
+            photoDiv.addEventListener('mouseout', () => {
+                infoDiv.style.display = 'none'; // Hide description when hover ends
+            });
+
             img.addEventListener('click', (e) => {
-            const currentDisplay = infoDiv.style.display;
-            infoDiv.style.display = currentDisplay === 'none' ? 'block' : 'none';
-            e.stopPropagation();
+                const currentDisplay = infoDiv.style.display;
+                infoDiv.style.display = currentDisplay === 'none' ? 'block' : 'none';
+                e.stopPropagation();
             });
         });
 
