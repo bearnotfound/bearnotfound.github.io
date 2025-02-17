@@ -141,6 +141,12 @@
             photoDiv.appendChild(infoDiv);
 
             gallery.appendChild(photoDiv);
+
+            img.addEventListener('click', (e) => {
+            const currentDisplay = infoDiv.style.display;
+            infoDiv.style.display = currentDisplay === 'none' ? 'block' : 'none';
+            e.stopPropagation();
+            });
         });
 
         document.addEventListener('click', (e) => {
