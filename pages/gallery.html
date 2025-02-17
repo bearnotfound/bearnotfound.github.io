@@ -95,7 +95,7 @@
             const img = document.createElement("img");
             img.src = image.src;
             img.alt = image.description;
-            img.setAttribute("ondragstart", "return false;");
+            img.draggable = false;
             
             photoDiv.innerHTML = `
                 <img src="${image.src}" alt="Image">
