@@ -1,9 +1,104 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <p1>Soon</p1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Glorious' Website - Gallery">
+    <meta property="og:description" content="Photo gallery!">
+    <meta property="og:image" content="https://raw.githubusercontent.com/bearnotfound/bearnotfound.github.io/main/images/IceBearCloseUpIcon.jpg">
+    <meta property="og:url" content="https://bearnotfound.github.io">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorgin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="shortcut icon" href=".../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 90vw;
+            max-width: 500px;
+            padding: 10px;
+            background: #111;
+            border-radius: 20px;
+            position: relative;
+        }
+        .photo {
+            position: relative;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .photo:hover img {
+            box-shadow: 0 0 10px 3px white;
+        }
+        .photo .info-container {
+            position: absolute;
+            bottom: -35px;
+            left: 0;
+            width: 100%;
+            background: white;
+            color: black;
+            padding: 5px 0;
+            border-radius: 10px;
+            font-size: 12px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 10;
+        }
+        .photo:hover .info-container {
+            opacity: 1;
+        }
+        .photo .info-container i {
+            display: block;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-  <br>
-  <a href="https://bearnotfound.github.io/">Return to Home</a>
+    <div class="gallery" id="gallery"></div>
+
+    <script>
+        const images = [
+            { src: "images/gallery/AirplaneView.jpeg", date: "Feb 17, 2025", description: "A beautiful sunset" },
+            { src: "images/gallery/Lake.jpeg", date: "Jan 5, 2025", description: "Mountain View" },
+            { src: "images/gallery/MapleLeaves.jpeg", date: "Dec 25, 2024", description: "Christmas Lights" },
+            { src: "images/gallery/PearsonFog.jpeg", date: "Nov 15, 2024", description: "City Skyline" },
+            { src: "images/gallery/Snow.jpeg", date: "Oct 3, 2024", description: "Golden Forest" },
+            { src: "images/gallery/Squirrel 1.jpeg", date: "Sep 22, 2024", description: "Ocean Waves" }
+        ];
+
+        const gallery = document.getElementById("gallery");
+        
+        images.forEach(image => {
+            const photoDiv = document.createElement("div");
+            photoDiv.classList.add("photo");
+            
+            photoDiv.innerHTML = `
+                <img src="${image.src}" alt="Image">
+                <div class="info-container">${image.description} <i>${image.date}</i></div>
+            `;
+            
+            gallery.appendChild(photoDiv);
+        });
+    </script>
 </body>
 </html>
