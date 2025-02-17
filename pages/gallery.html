@@ -107,10 +107,7 @@
     <div class="gallery" id="gallery"></div>
     
     <a href="https://bearnotfound.github.io/">
-        <button class="home-btn">
-            <img src="../../images/homebutton.png">
-            <span class="alt-text">🏠</span>
-        </button>
+        <button class="home-btn">🏠</button>
     </a>
     
     <script>
@@ -133,6 +130,10 @@
             img.src = image.src;
             img.alt = image.description;
             img.draggable = false;
+            
+            img.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+            });
 
             const infoDiv = document.createElement("div");
             infoDiv.classList.add("info-container");
@@ -142,10 +143,6 @@
             photoDiv.appendChild(infoDiv);
 
             gallery.appendChild(photoDiv);
-        });
-        
-        img.addEventListener('touchstart', (e) => {
-                e.preventDefault();
         });
     </script>
 
