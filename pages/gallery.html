@@ -123,48 +123,23 @@
             img.src = image.src;
             img.alt = image.description;
             img.draggable = false;
-            
+
             img.addEventListener('touchstart', (e) => {
                 e.preventDefault();
             });
-            
+
             photoDiv.addEventListener('touchstart', (e) => {
-                e.preventDefault();
+            e.preventDefault();
             });
-            
+
             const infoDiv = document.createElement("div");
             infoDiv.classList.add("info-container");
             infoDiv.innerHTML = `${image.description} <i>${image.date}</i>`;
-            infoDiv.style.display = 'none';
 
             photoDiv.appendChild(img);
             photoDiv.appendChild(infoDiv);
 
             gallery.appendChild(photoDiv);
-
-            photoDiv.addEventListener('mouseover', () => {
-                infoDiv.style.display = 'block'; // Show description on hover
-            });
-
-            photoDiv.addEventListener('mouseout', () => {
-                infoDiv.style.display = 'none'; // Hide description when hover ends
-            });
-
-            img.addEventListener('click', (e) => {
-                const currentDisplay = infoDiv.style.display;
-                infoDiv.style.display = currentDisplay === 'none' ? 'block' : 'none';
-                e.stopPropagation();
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-        const isImageOrDesc = e.target.closest('.photo');
-        if (!isImageOrDesc) {
-            const allDescriptions = document.querySelectorAll('.info-container');
-            allDescriptions.forEach(desc => {
-                desc.style.display = 'none';
-            });
-        }
         });
     </script>
 
