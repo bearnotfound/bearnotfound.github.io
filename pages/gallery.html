@@ -123,21 +123,17 @@
             img.src = image.src;
             img.alt = image.description;
             img.draggable = false;
-
-            img.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-            });
-
-            photoDiv.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            });
-
+            
             const infoDiv = document.createElement("div");
             infoDiv.classList.add("info-container");
             infoDiv.innerHTML = `${image.description} <i>${image.date}</i>`;
 
             photoDiv.appendChild(img);
             photoDiv.appendChild(infoDiv);
+
+            photoDiv.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+            });
 
             gallery.appendChild(photoDiv);
         });
