@@ -137,6 +137,16 @@
 
             gallery.appendChild(photoDiv);
         });
+
+        document.addEventListener('click', (e) => {
+        const isImageOrDesc = e.target.closest('.photo');
+        if (!isImageOrDesc) {
+            const allDescriptions = document.querySelectorAll('.info-container');
+            allDescriptions.forEach(desc => {
+                desc.style.display = 'none';
+            });
+        }
+        });
     </script>
 
     <script>
