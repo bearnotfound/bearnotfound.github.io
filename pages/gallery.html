@@ -96,12 +96,14 @@
             img.src = image.src;
             img.alt = image.description;
             img.draggable = false;
-            
-            photoDiv.innerHTML = `
-                <img src="${image.src}" alt="Image">
-                <div class="info-container">${image.description} <i>${image.date}</i></div>
-            `;
-            
+
+            const infoDiv = document.createElement("div");
+            infoDiv.classList.add("info-container");
+            infoDiv.innerHTML = `${image.description} <i>${image.date}</i>`;
+
+            photoDiv.appendChild(img);
+            photoDiv.appendChild(infoDiv);
+
             gallery.appendChild(photoDiv);
         });
     </script>
