@@ -114,6 +114,7 @@
             z-index: 20;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
         }
 
         .overlay img {
@@ -125,12 +126,13 @@
             transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
             border-radius: 15px;
             user-drag: none;
-            pointer-events: none;
+            pointer-events: auto;
         }
 
         .overlay.active {
             opacity: 1;
             display: flex;
+            pointer-events: auto;
         }
 
         .overlay img.active {
